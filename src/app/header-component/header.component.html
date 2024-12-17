@@ -1,0 +1,12 @@
+<header class="p-2 bg-danger-subtle mb-5 rounded shadow">
+  <h1>{{title}}</h1>
+
+  <!-- To pass content  form the outside -->
+  <ng-content></ng-content>
+
+  <!-- ngModel is a directive in Angular that provides two-way data binding between an HTML form element and a variable in your Angular component. -->
+  <input (keyup.enter)="onEnter()" [(ngModel)]="email" />
+
+  <button class="btn" [class.active]="isActive" [style.background]="isActive?'blue':'grey'"
+    (click)="save()">save</button>
+</header>

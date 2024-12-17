@@ -1,0 +1,24 @@
+<div [ngStyle]="{backgroundColor: isSelected?'grey':'lightgrey'}">
+  <h3>{{title}}</h3>
+  <h4>{{desc}}</h4>
+  <!-- [src] is property binding  (dom objects not html properties) for custom add like this => attr.custom="something"-->
+  <img class="bg-danger p-2" [src]="img" alt="img" />
+
+  <!-- this | is pipe  -->
+  <div>
+    {{'hell world'|titlecase}}: {{100|currency:'EUR'}}
+    ---
+    {{1730152072548|date}}
+    ---
+    {{"xyz"|testPipe: '1st arg': '2nd arg'}}
+  </div>
+
+  <!--customer directives  -->
+  <form>
+    <app-input onBlur="uppercase" [label]="'user name'" [placeholder]="'type here'"></app-input>
+    <app-input error="error in your passowrd" onBlur="uppercase" [label]="'password'" [type]="'password'"
+      [placeholder]="'******'"></app-input>
+  </form>
+
+  <button (click)="handleSelect()">Select</button>
+</div>

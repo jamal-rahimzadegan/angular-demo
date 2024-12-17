@@ -1,0 +1,24 @@
+<app-header>
+  <h3>Post Component content</h3>
+</app-header>
+
+<div>
+  <hr />
+  <h2>Posts:</h2>
+  <button (click)="emptyPosts()">empty</button>
+  <div *ngIf="posts.length>0; else noCourses">
+    <div *ngFor="let post of posts">
+      <app-post [title]="post.title" [desc]="post.desc" [img]="post.img" (onSelect)="selectPost($event)"></app-post>
+    </div>
+  </div>
+
+  <ng-template #noCourses>
+    <div class="m-2">
+      No Items
+    </div>
+  </ng-template>
+</div>
+
+
+
+<router-outlet />
